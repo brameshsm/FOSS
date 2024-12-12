@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+                /* Basic Reset */
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+         /* Header Styling */
+         header {
+            background-color: white;
+            color: #28a745;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for differentiation */
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        header h1 img {
+            width: 60px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        header nav a {
+            color: #666666; /* Pale black */
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 18px;
+        }
+
+        header nav a:hover {
+            color: #28a745; /* Green color on hover */
+        }
+
+        header nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #28a745;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        header nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+       footer {
+        background-color: #28a745;
+        color: white;
+        padding: 20px 0;
+        font-size: 14px;
+        text-align: center;
+    }
+
+.footer-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.footer-column h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #dfffc6;
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #dfffc6;
+}
+
+/* Footer line under content */
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+/* Align the copyright text to white and beneath the line */
+footer p {
+    margin-top: 10px;
+    color: white;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .footer-column {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-column ul {
+        padding-left: 0;
+    }
+}
+
+/* General styling for the section */
+/* General styling for the section */
+.vision-mission {
+    padding: 60px 20px;
+    background-color: #f9f8f7; /* Very Light Beige */
+    color: #333;
+    text-align: center;
+}
+
+.vision-mission .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #228B22; /* Green header and footer color */
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #228B22; /* Green underline */
+    margin: 10px auto 0 auto;
+}
+
+/* Content layout */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Card styling */
+.card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: #FFF;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #228B22; /* Green border */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: #F0FFF0; /* Light green hover effect */
+}
+
+.card-title {
+    font-size: 24px;
+    color: #228B22; /* Green */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1 style="font-size: 2em;">
+                <a href="home.html">
+                    <img src="images/logo.png" alt="FOSS Logo" style="height: 60px; width: auto;">
+                </a>
+                PESCE FOSS CLUB
+            </h1>
+            <nav>
+                <a href="home.html">Home</a>           
+                <a href="events.html">Events</a>
+                <a href="teams.html">Team</a>
+            </nav>
+        </div>
+    </header> 
+
+    <!-- Vision and Mission Section -->
+<section class="vision-mission">
+    <div class="container">
+        <h2 class="section-title">Vision & Mission</h2>
+        <div class="content">
+            <!-- Vision -->
+            <div class="card">
+                <h3 class="card-title">Vision</h3>
+                <p>
+                    To empower individuals and communities by promoting collaboration, innovation, and transparency through the adoption and contribution to free and open-source software.
+                </p>
+            </div>
+            <!-- Mission -->
+            <div class="card">
+                <h3 class="card-title">Mission</h3>
+                <p>
+                    To create an inclusive platform for students and professionals to learn, contribute, and grow in the open-source ecosystem, fostering a culture of sharing and technological excellence.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+ 
+ <!-- Footer -->
+ <footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>Contact Us</h4>
+            <ul>
+                <li><a href="mailto:foss@pesce.ac.in">Email: foss@pesce.ac.in</a></li>
+                <li><a href="https://github.com/PESCE-FOSS" target="_blank">GitHub</a></li>
+                <li><a href="https://www.instagram.com/pesce_foss_club/profilecard/?igsh=cGQyemh3YndwcnV3" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>About Us</h4>
+            <ul>
+                <li>PESCE FOSS Club</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+                <a href="https://github.com/PESCE-FOSS" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/pesce_foss_club/profilecard/?igsh=cGQyemh3YndwcnV3" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/foss-pesce-032b99335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-line"></div>
+    <p>&copy; 2024 PESCE FOSS Club. All rights reserved.</p>
+</footer>
+
+<!-- FontAwesome icons (for social media) -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>

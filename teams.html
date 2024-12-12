@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>FOSS_PESCE - Team</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS link if you have one -->
+    <style>
+        /* Common Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: white;
+            color: #28a745;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for differentiation */
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        header h1 img {
+            width: 60px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        header nav a {
+            color: #666666; /* Pale black */
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 18px;
+        }
+
+        header nav a:hover {
+            color: #28a745; /* Green color on hover */
+        }
+
+        header nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #28a745;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        header nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Main Content */
+        main {
+            width: 90%;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .team-section {
+            margin-top: 50px;
+        }
+
+        .team-card {
+            width: 220px;
+            height: 300px;
+            margin: 15px;
+            display: inline-block;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-card img {
+            width: 100%;
+            border-radius: 50%;
+            height: 160px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card h3 {
+            margin-top: 20px;
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        .team-card p {
+            font-size: 16px;
+            color: #555;
+            margin-top: 8px;
+        }
+
+        .team-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4); /* Light green shadow on hover */
+    background-color: #f4f4f4;
+}
+
+.team-card:hover img {
+    transform: scale(1.05);
+}
+
+        .team-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background-color: rgba(248, 250, 247, 0.3); */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-card:hover .overlay {
+            opacity: 1;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #28a745;
+            color: white;
+            padding: 20px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .footer-container {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .footer-column h4 {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #dfffc6;
+        }
+
+        .social-links {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #dfffc6;
+        }
+
+        /* Footer line under content */
+        .footer-line {
+            width: 100%;
+            height: 1px;
+            background-color: white;
+            margin-top: 20px;
+        }
+
+        /* Align the copyright text to white and beneath the line */
+        footer p {
+            margin-top: 10px;
+            color: white;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .footer-column {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-column ul {
+                padding-left: 0;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .team-card {
+                width: 180px;
+                height: 280px;
+            }
+
+            .team-card img {
+                height: 140px;
+            }
+        }
+
+
+        .team-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #dfffc6;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1 style="font-size: 2em;">
+                <a href="home.html">
+                    <img src="images/logo.png" alt="FOSS Logo" style="height: 60px; width: auto;">
+                </a>
+                PESCE FOSS CLUB
+            </h1>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="teams.html">Team</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Faculty Coordinator Section -->
+        <section class="team-section">
+            <h2>Faculty Coordinators</h2>
+            <div class="team-card">
+                <img src="images/smb.jpg" alt="Faculty Coordinator">
+                <h3>Dr.Brahmesh S M</h3>
+                <p>Mentor</p>
+                <div class="overlay"></div>
+            </div>
+            <div class="team-card">
+                <img src="images/hod.jpg" alt="Faculty Coordinator">
+                <h3>Dr.Minavathi</h3>
+                <p>Chief-Mentor</p>
+                <div class="overlay"></div>
+            </div>
+            
+        </section>
+
+        <!-- Core Members Section -->
+        <section class="team-section">
+            <h2>Core Members</h2>
+            <a href="https://github.com/kushal1625" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/kush.jpeg" alt="Core Member 1">
+        <h3>Kushal S</h3>
+        <p>Web-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+
+<a href="https://github.com/Dishats" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/dish.jpeg" alt="Core Member 2">
+        <h3>Disha</h3>
+        <p>Web-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Monishadr" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/monisha.jpeg" alt="Core Member 2">
+        <h3>Monisha D R</h3>
+        <p>Web-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href=" https://github.com/S2004-21/github" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/sahana.jpeg" alt="Core Member 2">
+        <h3>Sahana Gudenavar</h3>
+        <p>Web-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Appi-2004" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/mgk.jpeg" alt="Core Member 2">
+        <h3>Meghana G K</h3>
+        <p>Web-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/ruchithaMR" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/ruchitha.jpeg" alt="Core Member 2">
+        <h3>Ruchitha M R</h3>
+        <p>Design-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Chinmayee004" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/chinb.jpg" alt="Core Member 2">
+        <h3>Chinmayee B</h3>
+        <p>Design-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Jyothsna-ks" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/shivanya.jpg" alt="Core Member 2">
+        <h3>Jyothsna Shivanya K S</h3>
+        <p>Design-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Mchakravarthy19" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/chakri.jpg" alt="Core Member 2">
+        <h3>M Chakravarthy</h3>
+        <p>Design-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/vinay-clutch" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/vinay.jpeg" alt="Core Member 2">
+        <h3>Vinay B S</h3>
+        <p>Design-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Udayramesh45" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/uday.jpeg" alt="Core Member 2">
+        <h3>Uday R</h3>
+        <p>Event-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Keerthan004" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/kirthan.jpg" alt="Core Member 2">
+        <h3>Keerthan B J</h3>
+        <p>Event-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Vishav-source" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/vishav.JPG" alt="Core Member 2">
+        <h3>Vishav Baigra</h3>
+        <p>Event-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/akaymagotra" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/arun.png" alt="Core Member 2">
+        <h3>Arun Kumar</h3>
+        <p>Event-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Sinchanar09" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/sinch.jpeg" alt="Core Member 2">
+        <h3>Sinchana R</h3>
+        <p>Event-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Chinmayiks27" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/chinks.jpg" alt="Core Member 2">
+        <h3>Chinmayee K S</h3>
+        <p>Event-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Harshitha1116" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/harshitha.jpeg" alt="Core Member 2">
+        <h3>Harshitha H S</h3>
+        <p>Event-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/ishika2604" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/ishika.jpeg" alt="Core Member 2">
+        <h3>Ishika M</h3>
+        <p>Event-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/logo1 (1).jpeg" alt="Core Member 2">
+        <h3>Harsha R</h3>
+        <p>Event-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/parikshithgithub" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/parikshith.jpeg" alt="Core Member 2">
+        <h3>Parikshith S</h3>
+        <p>Event-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/kannika-2004" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/kannika.jpeg" alt="Core Member 2">
+        <h3>Kannika Rani B N</h3>
+        <p>Communication-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Reethu-mj" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/reethu.jpeg" alt="Core Member 2">
+        <h3>M J Reethu</h3>
+        <p>Communication-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Dishats" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/sanjana.jpeg" alt="Core Member 2">
+        <h3>Sanjana L</h3>
+        <p>Communication-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Meghana-N-Gowda" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/meghan.jpg" alt="Core Member 2">
+        <h3>Meghana M N</h3>
+        <p>Communication-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Shaik-Saaduddin" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/shaik.jpeg" alt="Core Member 2">
+        <h3>Shaik Shaduddin</h3>
+        <p>Communication-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/BhuvanGowdag" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/bhuvi.jpeg.jpeg" alt="Core Member 2">
+        <h3>Bhuvan Gowda G</h3>
+        <p>Communication-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/vyshak03" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/vyshak.jpg" alt="Core Member 2">
+        <h3>Vaishak M A</h3>
+        <p>Communication-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/kbg.jpeg" alt="Core Member 2">
+        <h3>Kushal Gowda B</h3>
+        <p>Communication-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/AbhishekGowdaM" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/abhi.jpg" alt="Core Member 2">
+        <h3>Abhishek Gowda M</h3>
+        <p>Documentation-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/vanitha-sl" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/vani.jpeg" alt="Core Member 2">
+        <h3>Vanitha S L</h3>
+        <p>Documentation-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Yash14-2004" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/yash.jpeg" alt="Core Member 2">
+        <h3>Yashashwini P M</h3>
+        <p>Documentation-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/Varshinimr09" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/varshini.jpg" alt="Core Member 2">
+        <h3>Varshini M R</h3>
+        <p>Documentation-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+<a href="https://github.com/sanath6666" target="_blank" class="team-card-link">
+    <div class="team-card">
+        <img src="images/sanath.jpg" alt="Core Member 2">
+        <h3>Sanath Kumar S</h3>
+        <p>Documentation-team</p>
+        <div class="overlay"></div>
+    </div>
+</a>
+
+<!-- Add more cards as needed with appropriate GitHub links -->
+            
+            <!-- Repeat this structure for the remaining 25 members -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="mailto:foss@pesce.ac.in">Email: foss@pesce.ac.in</a></li>
+                    <li><a href="https://github.com/PESCE-FOSS" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.instagram.com/pesce_foss_club/profilecard/?igsh=cGQyemh3YndwcnV3" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>About Us</h4>
+                <ul>
+                    <li>PESCE FOSS Club</li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://github.com/PESCE-FOSS" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/pesce_foss_club/profilecard/?igsh=cGQyemh3YndwcnV3" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/foss-pesce-032b99335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-line"></div>
+        <p>&copy; 2024 PESCE FOSS Club. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>

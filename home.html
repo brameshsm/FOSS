@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>PESCE FOSS</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+         /* Header Styling */
+         header {
+            background-color: white;
+            color: #28a745;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for differentiation */
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        header h1 img {
+            width: 60px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        header nav a {
+            color: #666666; /* Pale black */
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 18px;
+        }
+
+        header nav a:hover {
+            color: #28a745; /* Green color on hover */
+        }
+
+        header nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #28a745;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        header nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Social-media */
+        .social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s;
+      }
+
+.social-links a:hover {
+    color: #dfffc6;
+}
+
+        /* Main Content Styling */
+        main {
+            width: 90%;
+            margin: 30px auto;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        /* Section Styling */
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            text-align: justify;
+            flex-wrap: wrap;
+            position: relative;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .section img {
+            width: 45%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .section-content {
+            max-width: 55%;
+            text-align: left;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #28a745;
+            margin-bottom: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            animation: slideInLeft 1s;
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        p {
+            line-height: 1.8;
+            color: #555;
+            font-size: 16px;
+            animation: slideInRight 1s;
+            margin-bottom: 20px;
+        }
+
+        @keyframes slideInRight {
+            0% {
+                transform: translateX(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Button Styling */
+        .view-more-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 25px; /* Curved sides */
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.view-more-btn:hover {
+    background-color: #1f7d36;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+
+
+        footer {
+        background-color: #28a745;
+        color: white;
+        padding: 20px 0;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .footer-container {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .footer-column {
+        width: 30%;
+        margin-bottom: 20px;
+    }
+
+    .footer-column h4 {
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-decoration: underline;
+    }
+
+    .footer-column ul {
+        list-style: none;
+    }
+
+    .footer-column ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-column ul li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+        color: #dfffc6;
+    }
+
+    .social-links {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .social-links a {
+        color: white;
+        margin: 0 10px;
+        font-size: 24px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+        color: #dfffc6;
+    }
+
+    /* Footer line under content */
+    .footer-line {
+        width: 100%;
+        height: 1px;
+        background-color: white;
+        margin-top: 20px;
+    }
+
+    /* Align the copyright text to white and beneath the line */
+    footer p {
+        margin-top: 10px;
+        color: white;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+        .footer-column {
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-column ul {
+            padding-left: 0;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1 style="font-size: 2em;">
+                <a href="home.html">
+                    <img src="images/logo.png" alt="FOSS Logo" style="height: 60px; width: auto;">
+                </a>
+                PESCE FOSS CLUB
+            </h1>
+            <nav>
+                <a href="home.html">Home</a>           
+                <a href="events.html">Events</a>
+                <a href="teams.html">Team</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- FOSS Club Section -->
+        <div class="section">
+            <div class="section-content">
+                <h2>FOSS Club</h2>
+                <p>Welcome to the Free and Open Source Software Club [FOSS] at PESCE! We are a vibrant community of students passionate about open-source technology. Our mission is to empower individuals through collaboration and innovation, fostering a spirit of inclusivity and learning. The PESCE FOSS CLUB is your gateway to discovering and contributing to real-world projects and making meaningful connections with industry experts.</p>
+                <a href="vision.html" class="view-more-btn">Vision and Mission</a>
+            </div>
+            <img src="images/hero_main.png" alt="FOSS Club Image">
+        </div>
+
+        <!-- Get Trained by Experts Section -->
+        <div class="section">
+            <img src="images/hero_github.png" alt="Training Image">
+            <div class="section-content">
+                <h2>Get Trained by Experts</h2>
+                <p>Unlock the full potential of your skills by participating in our expert-led workshops and webinars. Whether you are looking to improve your coding abilities, learn about the latest open-source technologies, or get insights into career-building strategies, PESCE FOSS CLUB has something to offer. Our expert sessions are designed to provide practical, hands-on learning experiences that will help you stand out in the tech world.</p>
+            </div>
+        </div>
+
+        <!-- Get Connected Section -->
+        <div class="section">
+            <div class="section-content">
+                <h2>Get Connected</h2>
+                <p>The PESCE FOSS community is more than just a group of people—it's a network of motivated individuals working together to make a difference. Through our various communication channels, you can connect with like-minded individuals, share ideas, collaborate on projects, and receive mentorship from professionals. It's the perfect space for anyone looking to be part of a dynamic, forward-thinking community.</p>
+                <a href="teams.html" class="view-more-btn">View More</a>
+            </div>
+            <img src="images/recruit.png" alt="Connection Image">
+        </div>
+
+        <!-- Explore Club and Activities Section -->
+        <div class="section">
+            <img src="images/hero_clubs.png" alt="Activities Image">
+            <div class="section-content">
+                <h2>Explore Club Activities</h2>
+                <p>From coding challenges and hackathons to open-source project development, PESCE FOSS CLUB offers a wide range of exciting activities that foster learning and collaboration. Get involved in our events, participate in workshops, and take on challenges that test your skills and creativity. It's a great opportunity to expand your knowledge while contributing to impactful projects.</p>
+                <a href="events.html" class="view-more-btn">View More</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="mailto:foss@pesce.ac.in">Email: foss@pesce.ac.in</a></li>
+                    <li><a href="https://github.com/PESCE-FOSS" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.instagram.com/pesce_foss_club/profilecard/?igsh=cGQyemh3YndwcnV3" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>About Us</h4>
+                <ul>
+                    <li>PESCE FOSS Club</li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://github.com/PESCE-FOSS" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/pesce_foss_club/profilecard/?igsh=cGQyemh3YndwcnV3" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/foss-pesce-032b99335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-line"></div>
+        <p>&copy; 2024 PESCE FOSS Club. All rights reserved.</p>
+    </footer>
+    
+    <!-- FontAwesome icons (for social media) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
